@@ -1,0 +1,87 @@
+	<div class="panel panel-default"> 	
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				<input type="text" class="form-control input-lg" id="inputEmail3" placeholder="Questionário sem título"  ng-model="quiz.title">
+				<input type="hidden" class="form-control input-lg" id="inputEmail3" placeholder="Questionário sem título" value="userEmail" ng-model="quiz.email">
+			</h3>
+		</div>
+		<div  data-ng-repeat="question in questions">
+			<div class="row">
+				<div class="col-sm-11">
+					<div class="panel-body panel question">
+						<form action="#" class="form-horizontal" >
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label" >Texto da pergunta:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="inputEmail3" placeholder="Texto da pergunta" ng-model="question.question">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Tipo de Resposta:</label>
+								<div class="col-sm-4">
+									<select class="form-control" ng-model="question.type">
+										<option value="text">Texto</option>
+										<option value="option" >Múltipla Escolha</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-xs-offset-2" data-ng-show="question.type=='option'">
+								<div data-ng-repeat="option in question.options" >
+									<div class="form-group">
+
+										<div class="col-sm-4">
+											<input type="text" class="form-control" id="opcao" placeholder="Digite a opção" ng-model="option.value">
+										</div>
+										<div class="col-sm-8">
+											<div class="col-sm-3">
+												<a href="" data-ng-click="removeOption(question)"><span class="fui-cross"></span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<a href="" data-ng-click="addOption(question)"><span class="fui-plus"></span></span></a>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-sm-1 pull-right">
+					<a href="" class="btn btn-block btn-xs btn-danger col-xs-12" data-ng-click="remove()">Remover</a>
+					 <!-- <a href="" class="btn btn-block btn-xs btn-danger col-xs-12" data-ng-click="showConsole()">aa</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+<a class="btn btn-block btn-primary" data-ng-click="add()">Adicionar pergunta</a>
+<a class="btn btn-default btn-large btn-block" ng-click="confirm()" data-toggle="modal" data-target="#modal">Salvar questionário</a>
+
+<div class="modal fade" id="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">{{quiz.title}}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="col-md-12">
+					<div class="tile">
+						<h3 class="tile-title"></h3>
+						<span>Conte-nos mais sobre seu questionário:</span>
+						<p>{{quiz.user.email}}</p>
+						<textarea class="form-control" data-ng-model="quiz.description"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+			<div class="alert alert-danger" role="alert" data-ng-hide="error==null"><span>{{error}}</span></div>	
+				<button type="button" class="btn btn-primary" data-ng-click="save()">Salvar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

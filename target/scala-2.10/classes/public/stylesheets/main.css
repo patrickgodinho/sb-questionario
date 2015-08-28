@@ -1,0 +1,63 @@
+.content{
+	background-color: #edeff1;
+	min-height: 640px;	
+	height: 100%;	
+	margin: 0 auto: ;
+}
+.row-content{
+	display: block;
+	margin: 0 auto;
+}
+
+content{
+	margin: 20 auto;
+
+}
+.element-inverse{
+	text-align: center;
+	background-color: #edeff1;
+	padding: 1px;	
+	margin-bottom: 15px;
+}
+.element{
+	text-align: center;
+	background-color: #FFF;
+	padding: 1px;	
+	margin-bottom: 15px;
+	border-radius: 10px;
+}
+.element-title{
+	text-align: center;
+	background-color: #FFF;
+	padding: 1px;	
+	margin-bottom: 20px;
+}
+.a-create{
+	margin-top: 15px;
+}
+
+.questBox{
+	margin-top:20px;
+}
+.btn-salvar{
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+.footer{
+	height: 61px;
+	background-color: #2f4154;
+	text-align: center;
+	bottom: 0;
+	/*position: fixed;*/
+	width: 100%;
+}
+.footer .first{
+	margin-top: 20px;
+}
+.green{
+	color: #16a085;
+}
+.red{
+	color: #E74C42;
+}

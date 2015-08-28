@@ -1,0 +1,75 @@
+<!-- <div class="row element-title">
+	<h4>Questionários cadastrados</h4>
+</div> -->
+
+<div class="row">
+	<form  action="#" role="search">
+		<div class="form-group">
+			<div class="input-group">
+				<input class="form-control" id="navbarInput-01" type="search" placeholder="Buscar" ng-model="searchText">
+				<div class="input-group-addon"><span class="fui-search"></span></div>
+				<span class="input-group-btn">
+				</span>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="row element" data-ng-init="list()">
+	<div data-ng-repeat="q in quiz | filter:searchText">
+
+		<div class="col-md-3">
+			<div class="tile questBox">
+				<h3 class="tile-title">{{q.title}}</h3>
+				<p>{{q.user.email}}</p>
+				<p>{{q.description}}</p>
+				<a class="btn btn-primary btn-large btn-block" ng-click="answer(q)" data-toggle="modal" data-target="#modal">Responder</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="modal fade" id="modal" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">{{quizToAnswer.title}}</h4>
+			</div>
+			<div class="modal-body">
+				<div data-ng-repeat="question in quizToAnswer.questions">
+					<form>
+						<div class="form-group">
+							<label for="question"><h6>{{question.question}}</h6></label>
+							<input ng-show="question.type=='text'" data-ng-model="question.answer" type="text" class="form-control" id="question" placeholder="Reposta">
+							<div data-ng-repeat="option in question.options">
+								<label class="radio">
+									<input type="radio" name="optionsRadios" data-ng-model="question.answer" id="optionsRadios2" value="{{option.value}}" data-toggle="radio" checked="" class="custom-radio"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>	
+									{{option.value}}
+								</label>
+							</div>
+						</form>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="alert alert-danger" role="alert" data-ng-hide="error==null"><span>{{error}}</span></div>
+					<form data-ng-submit="submitAnswer()">
+						<div class="col-xs-6">
+							
+
+							<input data-ng-model="answerEmail" type="email" class="col-xs-12" id="question" placeholder="Digite seu e-mail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+
+						</div>
+						<div class="col-xs-6">
+						<input type="submit" class="btn btn-primary col-sm-5" value="Responder"></input>
+						<button type="button" class="btn btn-default col-sm-5" data-dismiss="modal">Fechar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

@@ -16,8 +16,6 @@ git clone https://github.com/patrickgodinho/sb-questionario.git
 cd sb-questionario
 play run
 
-Ou entre na aplicação hospedada no heroku.
-https://immense-bastion-5313.herokuapp.com
 
 Dúvidas?
 godinhopatrick@gmail.com
